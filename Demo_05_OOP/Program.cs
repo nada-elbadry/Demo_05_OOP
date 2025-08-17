@@ -1,6 +1,7 @@
 ﻿//using Demo_05_OOP.Binding;
 using Demo_05_OOP.Interface;
 using Demo_05_OOP.Interface_Examble01;
+using Demo_05_OOP.Interface_Examble02;
 using Type = Demo_05_OOP.Interface.Type;//Alias Name
 //Or using full qalifay to choose whats Type you want to use here
 namespace Demo_05_OOP
@@ -109,13 +110,43 @@ namespace Demo_05_OOP
             //TypeA typeAObj = new TypeA();
             //PrintFiveNumberFromSeries(typeAObj);
 
-            TypeB typeBObj = new TypeB();
-            PrintFiveNumberFromSeries(typeBObj);
+            //TypeB typeBObj = new TypeB();
+            //PrintFiveNumberFromSeries(typeBObj);
 
-           // TypeC typeCObj = new TypeC();
-           // PrintFiveNumberFromSeries(typeCObj);//Invalid
+            // TypeC typeCObj = new TypeC();
+            // PrintFiveNumberFromSeries(typeCObj);//Invalid
 
             #endregion
+
+            #region Examble 02
+
+            //Car carObj = new Car();
+            //carObj.Speed = 500;
+            //carObj.Forward();
+            //carObj.Backward();
+            //carObj.Left();
+            //carObj.Right();
+
+          //  AirPlan airPlanObj = new AirPlan();
+           // airPlanObj.Speed = 200;
+            //airPlanObj.Forward();//Airplan Move Forward Implemented Implicity
+                                 //airPlanObj.Backward();//Invalid [Implemented Explicitly]
+                                 // airPlanObj.Left();//Invalid [Implemented Explicitly]
+                                 // airPlanObj.Right();//Invalid [Implemented Explicitly]
+
+          // IMoveOnAir moveAirPlanOnAir= new AirPlan();
+            // moveAirPlanOnAir.Speed = 100;//Invalid
+            //moveAirPlanOnAir.Forward();
+            //moveAirPlanOnAir.Backward();//Valid
+
+            //IMoveOnGround moveAirplanOnGround = new AirPlan();
+            //moveAirplanOnGround.Forward();
+            //moveAirplanOnGround.Backward();
+            //moveAirplanOnGround.Left();
+            //moveAirplanOnGround.Right();
+            #endregion
+
+
         }
     }
 }
