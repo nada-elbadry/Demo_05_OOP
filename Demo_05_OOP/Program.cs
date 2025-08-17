@@ -149,10 +149,10 @@ namespace Demo_05_OOP
             #region Shallow Copy and Deep Copy
 
             #region Array of value type
-            int[] Arr01 = { 1, 2, 3 };
-            int[] Arr02 = new int[3];//{0,0,0}
-            Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}");
-            Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}");
+            //int[] Arr01 = { 1, 2, 3 };
+            //int[] Arr02 = new int[3];//{0,0,0}
+            //Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}");
 
             #region Shallow Copy
             // Arr02 = Arr01;//Shallow Copy 
@@ -171,22 +171,76 @@ namespace Demo_05_OOP
 
             #region Deep Copy
 
-            Arr02 = (int[])Arr01.Clone();//Deep Copy
+            // Arr02 = (int[])Arr01.Clone();//Deep Copy
             // Make a new array which is a shallow copy of the original array.
             //Happend In Heap
             //Crate New Object With Diffrent And New Identity And Return It
             //The New Object Will Have The Same Object  State [Data] Of Caller 'Arr01'
 
-            Console.WriteLine("After Deep Copy");
-            Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}");
-            Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}");
-            Arr01[0] = 100;
-            Console.WriteLine($"Arr01[0] = {Arr01[0]}");//100
-            Console.WriteLine($"Arr02[0] = {Arr01[0]}");//1
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}");
+            //Arr01[0] = 100;
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");//100
+            //Console.WriteLine($"Arr02[0] = {Arr01[0]}");//1
+
+            #endregion
+
+
+            #endregion
+
+            #region Array Of Reference Type
+
+            #region Immutable Type 
+            //strings , custom immutable type
+            //string[] Names01 = {"Omar","Amr"};//{RefString01,RefString02}
+            //string[] Names02 = new string[2];//{null,null}
+            //Console.WriteLine($"HashCode of Name01 = {Names01.GetHashCode()}");
+            //Console.WriteLine($"HashCode of Name02 = {Names02.GetHashCode()}");
+
+            #region Shallow Copy [Copy Identity]
+            //Names02 = Names01;
+            //Copy Value Of Names01 To Names02
+            //Coppy Happend In Stack
+            //[Names01,Names02] => Has Same Value [Adress]
+            ////[Names01,Names02] =>Refer To The Same Object
+            //Console.WriteLine("After Shallow copy");
+            //Console.WriteLine($"HashCode of Name01 = {Names01.GetHashCode()}");
+            //Console.WriteLine($"HashCode of Name02 = {Names02.GetHashCode()}");
+
+            //Console.WriteLine($"Names01[0] ={Names01[0]}");//omar
+            //Console.WriteLine($"Names02[0] ={Names02[0]}");//omar
+
+            //Names01[0] = "Sama";
+
+            //Console.WriteLine($"Names01[0] ={Names01[0]}");//sama
+            //Console.WriteLine($"Names02[0] ={Names02[0]}");//sama
+            #endregion
+
+            #region Deep Copy
+
+            //Names01 = (string[])Names01.Clone();//Coppy Happend In Heap
+            //Create New Object With Diffrent and new identity with the same object state of caller 'name01'
+            //Return it
+            //[Name01,Names02]=>Are Refaring To Diffrent Object
+            //Console.WriteLine("After Deep copy");
+            //Console.WriteLine($"HashCode of Name01 = {Names01.GetHashCode()}");
+            //Console.WriteLine($"HashCode of Name02 = {Names02.GetHashCode()}");
+
+            //Names01[0] = "Abeer";
+            //Console.WriteLine($"Names01[0] ={Names01[0]}");//Abeer
+            //Console.WriteLine($"Names02[0] ={Names02[0]}");//omar
 
             #endregion
 
             #endregion
+            #region Mutable Type
+            //string Builder /list
+
+            #endregion
+
+            #endregion
+
             #endregion
         }
     }
