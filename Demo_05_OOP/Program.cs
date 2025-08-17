@@ -1,5 +1,7 @@
 ﻿using Demo_05_OOP.Binding;
-
+using Demo_05_OOP.Interface;
+using Type = Demo_05_OOP.Interface.Type;//Alias Name
+//Or using full qalifay to choose whats Type you want to use here
 namespace Demo_05_OOP
 {
     internal class Program
@@ -35,28 +37,51 @@ namespace Demo_05_OOP
             // typeBRef.MyFun02();// TypeC a = 10 , b = 20 , c=3
 
 
-           // typeCRef.MyFun02();//// Type C : A = 1 , b = 2 c=3
-                               // TypeA typeARef = new TypeD(1, 2, 3, 4); //Indirect Parent
-                               // typeARef.MyFun01();//Static Binding
-                               // typeARef.MyFun02();// Dynamic Binding [Type C : A = 1 , b = 2 c=3]
-                               //
-                               // TypeB typeBRef = new TypeD(1,2,3,4);//Indirect Parent
-                               // typeBRef.MyFun01();//I am Type B [Child]
-                               // typeBRef.MyFun02();// Type C : A = 1 , b = 2 c=3
-                               //
-                               // TypeC typeCRef = new TypeD(1,2,3,5);//Direct Parent
-                               // typeCRef.MyFun01();// I Am Type C [Grand Child]
+            // typeCRef.MyFun02();//// Type C : A = 1 , b = 2 c=3
+            // TypeA typeARef = new TypeD(1, 2, 3, 4); //Indirect Parent
+            // typeARef.MyFun01();//Static Binding
+            // typeARef.MyFun02();// Dynamic Binding [Type C : A = 1 , b = 2 c=3]
+            //
+            // TypeB typeBRef = new TypeD(1,2,3,4);//Indirect Parent
+            // typeBRef.MyFun01();//I am Type B [Child]
+            // typeBRef.MyFun02();// Type C : A = 1 , b = 2 c=3
+            //
+            // TypeC typeCRef = new TypeD(1,2,3,5);//Direct Parent
+            // typeCRef.MyFun01();// I Am Type C [Grand Child]
 
-           // TypeA typeARef = new TypeE(1, 2, 3, 4, 5);//Indirect parent
-           // TypeB typeBRef = new TypeE(1,2,3,4,5);//Indirect parent
-           // TypeC typeCRef = new TypeE(1,2,3,4,5);//Indirect parent
-           // TypeD typeDRef = new TypeE(1,2,3,4,5);//direct parent
-           //
-           // typeARef.MyFun02();//Type C : A = 1 , b = 2 c=3
-           // typeBRef.MyFun02();//Type C : A = 1 , b = 2 c=3
-           // typeCRef.MyFun02();//Type C : A = 1 , b = 2 c=3
-           // typeDRef.MyFun02();//Type E :  A = 1 , b = 2 c=3 d=4 E =5
-           //==============
+            // TypeA typeARef = new TypeE(1, 2, 3, 4, 5);//Indirect parent
+            // TypeB typeBRef = new TypeE(1,2,3,4,5);//Indirect parent
+            // TypeC typeCRef = new TypeE(1,2,3,4,5);//Indirect parent
+            // TypeD typeDRef = new TypeE(1,2,3,4,5);//direct parent
+            //
+            // typeARef.MyFun02();//Type C : A = 1 , b = 2 c=3
+            // typeBRef.MyFun02();//Type C : A = 1 , b = 2 c=3
+            // typeCRef.MyFun02();//Type C : A = 1 , b = 2 c=3
+            // typeDRef.MyFun02();//Type E :  A = 1 , b = 2 c=3 d=4 E =5
+            //==============
+            #endregion
+
+            #region Interface
+            IType refType;
+            //Declare For Reference From From Type 'Itype'
+            //CLR Will Allocate 4 Bytes At Heap 
+            //'refType' Can Refer To Any Type That Implement Interface 'IType'
+
+            // refType=new IType();  //Invalid 
+
+            // refType = new Demo_05_OOP.Interface.Type();
+            //System.Type
+
+            //refType = new Interface.Type();
+
+            //refType.MyProperty = 50;
+            //refType.MyMethod();// Hello from class Type
+            //refType.Print();//Hello from default implemented Method
+
+            //Type typeObj = new Type();
+            //typeObj.MyProperty = 50;
+            //typeObj.MyMethod();
+            //typeObj.Print();//Invalid 
             #endregion
         }
     }
