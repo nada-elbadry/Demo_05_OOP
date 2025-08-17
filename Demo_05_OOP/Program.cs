@@ -1,4 +1,5 @@
 ﻿//using Demo_05_OOP.Binding;
+using Demo_05_OOP.Built_in__interfaces;
 using Demo_05_OOP.Interface;
 using Demo_05_OOP.Interface_Examble01;
 using Demo_05_OOP.Interface_Examble02;
@@ -28,8 +29,8 @@ namespace Demo_05_OOP
             }
 
         }
-                static void Main(string[] args)
-                {
+        static void Main(string[] args)
+        {
             #region Binding
 
             //TypeA typeARef = new TypeB(1, 2);
@@ -238,7 +239,7 @@ namespace Demo_05_OOP
 
             #region Mutable Type
             //string Builder /list
-           // StringBuilder[] Names01 = new StringBuilder[1];
+            // StringBuilder[] Names01 = new StringBuilder[1];
             //=> {null}
             // Names01[0] = "omar";//invalid
             //  Names01[0].Append("Omar");//invalid 
@@ -268,7 +269,7 @@ namespace Demo_05_OOP
             #endregion
 
             #region Deep Copy
-           // Names02 = (StringBuilder[])Names01.Clone();
+            // Names02 = (StringBuilder[])Names01.Clone();
             // Create new object diffrent and new identity with the same object state of caller 'Name02'
             //Console.WriteLine("After Deep Copy");
             //Console.WriteLine($"HashCode of Names01 = {Names01.GetHashCode()}");
@@ -288,6 +289,85 @@ namespace Demo_05_OOP
             #endregion
 
             #endregion
+            #region Built in Interface
+
+            #region ICloneable
+            //Employee employee01 = new Employee() { Id = 10, Name = "Omar", Salary = 5000 };
+            //Employee employee02 = new Employee() { Id = 20, Name = "Mona", Salary = 7500 };
+            //Console.WriteLine($"employee01 = {employee01}"); // Id = 10 , Name = Omar , Salary = $5,000.00
+            //Console.WriteLine($"employee01.GetHashCode() = {employee01.GetHashCode()}"); // 54267293
+            //Console.WriteLine($"employee02 = {employee02}"); // Id = 10 , Name = Omar , Salary = $5,000.00
+            //Console.WriteLine($"employee02.GetHashCode() = {employee02.GetHashCode()}"); // 18643596
+            //employee02 = (Employee)employee01.Clone(); // This Is Deep Copy 
+
+            ///// Clone Method : This Method Generates new Object With New  and Different Identity
+            ///// This Object Will Have Same Object State [Data] of Caller Object  
+
+            //// 2nd Way To Do Deep Copy [Copy Constructor]
+            //// Copy Constructor : is a Special Constructor Used To Make a Deep Copy For Reference Type Object 
+            //employee02 = new Employee(employee01);
+
+            //Console.WriteLine("after Deep Copy");
+            //Console.WriteLine("=========================");
+            //employee01.Salary = 9000;
+            //employee01.Name = "Ahmed";
+            //Console.WriteLine($"employee01 = {employee01}"); // Id = 10 , Name = Ahmed , Salary = $9,000.00
+            //Console.WriteLine($"employee01.GetHashCode() = {employee01.GetHashCode()}"); // 54267293
+            //Console.WriteLine($"employee02 = {employee02}"); // Id = 10 , Name = Omar , Salary = $5,000.00
+            //Console.WriteLine($"employee02.GetHashCode() = {employee02.GetHashCode()}"); // 33574638 
+            #endregion
+
+            #region IComparable
+            //Employee[] employees =
+            //{
+            //	new Employee(){Id= 10 , Name = "Omar" , Salary = 6000},
+            //	new Employee(){Id= 20 , Name = "Ahmed" , Salary = 10000},
+            //	new Employee(){Id= 30 , Name = "Sama" , Salary = 4000},
+            //	new Employee(){Id= 40 , Name = "May" , Salary = 5000},
+            //};
+
+            //Array.Sort(employees); 
+            //Array.Reverse(employees); // To Reverse Order 
+            //foreach (Employee employee in employees)
+            //{
+            //	Console.WriteLine(employee);
+            //}
+            //// Id = 30 , Name = Sama , Salary = $4,000.00
+            //// Id = 40 , Name = May , Salary = $5,000.00
+            //// Id = 10 , Name = Omar , Salary = $6,000.00
+            //// Id = 20 , Name = Ahmed , Salary = $10,000.00
+            //// Sorting Employee Based On Salary In ascending Order  
+            #endregion
+
+            #region IComparer
+
+            //Employee[] employees =
+            //{
+            //	new Employee(){Id= 10 , Name = "Omar" , Salary = 6000},
+            //	new Employee(){Id= 20 , Name = "Ahmed" , Salary = 10000},
+            //	new Employee(){Id= 30 , Name = "Sama" , Salary = 4000},
+            //	new Employee(){Id= 40 , Name = "May" , Salary = 5000},
+            //};
+            //// Sorting Array Based On Name
+
+
+            //Array.Sort(employees, new EmployeeNameComparer());
+            //foreach (Employee employee in employees)
+            //{
+            //	Console.WriteLine(employee);
+            //}
+            //// Id = 20 , Name = Ahmed , Salary = $10,000.00
+            //// Id = 40 , Name = May , Salary = $5,000.00
+            //// Id = 10 , Name = Omar , Salary = $6,000.00
+            //// Id = 30 , Name = Sama , Salary = $4,000.00
+            ////// Sorting Employee Based On Name In ascending Order  
+
+            #endregion
+
+            #endregion
+
         }
     }
+
 }
+
