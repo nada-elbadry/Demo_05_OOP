@@ -2,6 +2,7 @@
 using Demo_05_OOP.Interface;
 using Demo_05_OOP.Interface_Examble01;
 using Demo_05_OOP.Interface_Examble02;
+using System.Text;
 using Type = Demo_05_OOP.Interface.Type;//Alias Name
 //Or using full qalifay to choose whats Type you want to use here
 namespace Demo_05_OOP
@@ -234,8 +235,53 @@ namespace Demo_05_OOP
             #endregion
 
             #endregion
+
             #region Mutable Type
             //string Builder /list
+           // StringBuilder[] Names01 = new StringBuilder[1];
+            //=> {null}
+            // Names01[0] = "omar";//invalid
+            //  Names01[0].Append("Omar");//invalid 
+
+            //Names01[0] = new StringBuilder("omar");
+
+            //StringBuilder[] Names01 = [new StringBuilder("omar")];//collection exeperision
+
+            //StringBuilder[] Names02 = new StringBuilder[1];
+            //Console.WriteLine($"HashCode of Names01 = {Names01.GetHashCode()}");
+            //Console.WriteLine($"HashCode of Names02 = {Names02.GetHashCode()}");
+
+            #region Shallow Copy
+            // Names01 = Names02;
+            //Names01 , Names02 => Refer to the same object
+            //Copy adress
+            //Console.WriteLine("After shallow copy");
+            //Console.WriteLine($"HashCode of Names01 = {Names01.GetHashCode()}");
+            //Console.WriteLine($"HashCode of Names02 = {Names02.GetHashCode()}");
+
+            //Console.WriteLine($"Names01[0] ={Names01[0]}");//omar
+            //Console.WriteLine($"Names02[0] ={Names02[0]}");//omar
+
+            //Names01[0].Append("Ahmed");
+            //Console.WriteLine($"Names01[0] ={Names01[0]}");//omar Ahmed
+            //Console.WriteLine($"Names02[0] ={Names02[0]}");//omar Ahmed
+            #endregion
+
+            #region Deep Copy
+           // Names02 = (StringBuilder[])Names01.Clone();
+            // Create new object diffrent and new identity with the same object state of caller 'Name02'
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"HashCode of Names01 = {Names01.GetHashCode()}");
+            //Console.WriteLine($"HashCode of Names02 = {Names02.GetHashCode()}");
+
+            //Console.WriteLine($"Names01[0] ={Names01[0]}");//omar
+            //Console.WriteLine($"Names02[0] ={Names02[0]}");//omar
+
+            //Names01[0].Append("Ahmed");
+            //Console.WriteLine("After Changing ");
+            //Console.WriteLine($"Names01[0] ={Names01[0]}");//omar Ahmed
+            //Console.WriteLine($"Names02[0] ={Names02[0]}");//omar Ahmed
+            #endregion
 
             #endregion
 
