@@ -1,13 +1,33 @@
-﻿using Demo_05_OOP.Binding;
+﻿//using Demo_05_OOP.Binding;
 using Demo_05_OOP.Interface;
+using Demo_05_OOP.Interface_Examble01;
 using Type = Demo_05_OOP.Interface.Type;//Alias Name
 //Or using full qalifay to choose whats Type you want to use here
 namespace Demo_05_OOP
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void PrintFiveNumberFromSeries(ISeries? series)
         {
+            if (series is not null)
+            {
+                for (int i = 1; i <= 5; i++)
+                {
+                    Console.WriteLine($"{series.Current}");
+                    series.GetNext();
+
+                }
+                series.Reset();
+            }
+            else
+            {
+                return;
+
+            }
+
+        }
+                static void Main(string[] args)
+                {
             #region Binding
 
             //TypeA typeARef = new TypeB(1, 2);
@@ -62,7 +82,7 @@ namespace Demo_05_OOP
             #endregion
 
             #region Interface
-            IType refType;
+            //  IType refType;
             //Declare For Reference From From Type 'Itype'
             //CLR Will Allocate 4 Bytes At Heap 
             //'refType' Can Refer To Any Type That Implement Interface 'IType'
@@ -82,6 +102,19 @@ namespace Demo_05_OOP
             //typeObj.MyProperty = 50;
             //typeObj.MyMethod();
             //typeObj.Print();//Invalid 
+            #endregion
+
+            #region Examble 01
+
+            //TypeA typeAObj = new TypeA();
+            //PrintFiveNumberFromSeries(typeAObj);
+
+            TypeB typeBObj = new TypeB();
+            PrintFiveNumberFromSeries(typeBObj);
+
+           // TypeC typeCObj = new TypeC();
+           // PrintFiveNumberFromSeries(typeCObj);//Invalid
+
             #endregion
         }
     }
