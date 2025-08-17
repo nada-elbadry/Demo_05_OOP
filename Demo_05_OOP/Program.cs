@@ -127,14 +127,14 @@ namespace Demo_05_OOP
             //carObj.Left();
             //carObj.Right();
 
-          //  AirPlan airPlanObj = new AirPlan();
-           // airPlanObj.Speed = 200;
+            //  AirPlan airPlanObj = new AirPlan();
+            // airPlanObj.Speed = 200;
             //airPlanObj.Forward();//Airplan Move Forward Implemented Implicity
-                                 //airPlanObj.Backward();//Invalid [Implemented Explicitly]
-                                 // airPlanObj.Left();//Invalid [Implemented Explicitly]
-                                 // airPlanObj.Right();//Invalid [Implemented Explicitly]
+            //airPlanObj.Backward();//Invalid [Implemented Explicitly]
+            // airPlanObj.Left();//Invalid [Implemented Explicitly]
+            // airPlanObj.Right();//Invalid [Implemented Explicitly]
 
-          // IMoveOnAir moveAirPlanOnAir= new AirPlan();
+            // IMoveOnAir moveAirPlanOnAir= new AirPlan();
             // moveAirPlanOnAir.Speed = 100;//Invalid
             //moveAirPlanOnAir.Forward();
             //moveAirPlanOnAir.Backward();//Valid
@@ -146,7 +146,48 @@ namespace Demo_05_OOP
             //moveAirplanOnGround.Right();
             #endregion
 
+            #region Shallow Copy and Deep Copy
 
+            #region Array of value type
+            int[] Arr01 = { 1, 2, 3 };
+            int[] Arr02 = new int[3];//{0,0,0}
+            Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}");
+            Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}");
+
+            #region Shallow Copy
+            // Arr02 = Arr01;//Shallow Copy 
+            //Copy Value of Arr01 To Arr02
+            //value=Adress
+            //Copy Happend in stack
+            //[ Arr01 , Arr02 ]=> Has Same [Adress]
+            //[ Arr01 , Arr02 ]=> Refer To The Same Object
+            //Console.WriteLine("Shallow Copy");
+            //Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}");
+            //Arr01[0] = 100;
+            //Console.WriteLine($"Arr01[0]={Arr01[0]}");
+            //Console.WriteLine($"Arr02[0]={Arr02[0]}");
+            #endregion
+
+            #region Deep Copy
+
+            Arr02 = (int[])Arr01.Clone();//Deep Copy
+            // Make a new array which is a shallow copy of the original array.
+            //Happend In Heap
+            //Crate New Object With Diffrent And New Identity And Return It
+            //The New Object Will Have The Same Object  State [Data] Of Caller 'Arr01'
+
+            Console.WriteLine("After Deep Copy");
+            Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}");
+            Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}");
+            Arr01[0] = 100;
+            Console.WriteLine($"Arr01[0] = {Arr01[0]}");//100
+            Console.WriteLine($"Arr02[0] = {Arr01[0]}");//1
+
+            #endregion
+
+            #endregion
+            #endregion
         }
     }
 }
